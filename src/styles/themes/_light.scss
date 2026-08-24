@@ -1,0 +1,9 @@
+@use "../abstracts/colors" as *;
+
+:root {
+  --primary: #{$primary};
+  --background: #{$background};
+  --surface: #{$surface};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+}
