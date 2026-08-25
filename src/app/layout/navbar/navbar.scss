@@ -1,0 +1,366 @@
+
+@use "../../../styles/abstracts/colors" as *;
+@use "../../../styles/abstracts/spacing" as *;
+@use "../../../styles/abstracts/variables" as *;
+@use "../../../styles/abstracts/breakpoints" as *;
+@use "../../../styles/abstracts/mixins" as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: var(--color-surface);
+  border-bottom: 1px solid $border;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  &__container {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: $spacing-lg;
+  }
+
+  /* ================================
+     LOGO
+     ================================ */
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    color: $text-primary;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+  }
+
+  &__logo-dot {
+    color: $primary;
+  }
+
+  /* ================================
+     DESKTOP NAVIGATION
+     ================================ */
+
+  &__links {
+    display: flex;
+    align-items: center;
+
+    gap: $spacing-xl;
+
+    margin-left: auto;
+  }
+
+  &__link {
+    position: relative;
+
+    color: $text-secondary;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+
+      width: 0;
+      height: 2px;
+
+      background: $primary;
+
+      transition: width 0.2s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  /* ================================
+     CTA
+     ================================ */
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 0.65rem 1.1rem;
+
+    border-radius: $radius-md;
+
+    background: $primary;
+    color: var(--color-on-primary);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      background: $primary-dark;
+      transform: translateY(-1px);
+    }
+  }
+
+  /* Theme toggle buttons (shared and compact) */
+  &__theme-toggle,
+  &__mobile-theme-toggle {
+    border: 0;
+    border-radius: $radius-md;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  &__theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+  }
+
+  &__mobile-theme-toggle {
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+  }
+
+  /* ================================
+     MOBILE MENU BUTTON
+     ================================ */
+
+  &__menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 8px;
+
+    border: 0;
+    border-radius: $radius-md;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 5px;
+
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--color-background);
+    }
+
+    span {
+      display: block;
+
+      width: 22px;
+      height: 2px;
+
+      background: $text-primary;
+
+      border-radius: 2px;
+
+      transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+    }
+  }
+
+  /* ================================
+     MOBILE NAVIGATION
+     ================================ */
+
+  &__mobile-menu {
+    display: none;
+  }
+
+  &__mobile-link,
+  &__mobile-cta {
+    text-decoration: none;
+  }
+
+  /* ================================
+     TABLET
+     ================================ */
+
+  @include tablet {
+    &__container {
+      min-height: 68px;
+    }
+
+    &__links {
+      gap: $spacing-md;
+    }
+
+    &__link {
+      font-size: 0.9rem;
+    }
+
+    &__cta {
+      padding: 0.6rem 0.9rem;
+
+      font-size: 0.85rem;
+    }
+  }
+
+  /* ================================
+     MOBILE
+     ================================ */
+
+  @include mobile {
+    &__container {
+      min-height: 64px;
+    }
+
+    &__logo {
+      font-size: 1.1rem;
+    }
+
+    /* Hide desktop navigation */
+    &__links,
+    &__cta {
+      display: none;
+    }
+
+    /* Hide desktop theme toggle and show mobile theme toggle */
+    &__theme-toggle {
+      display: none;
+    }
+
+    &__mobile-theme-toggle {
+      display: block;
+    }
+
+    /* Show hamburger */
+    &__menu-button {
+      display: flex;
+    }
+
+    /* Mobile dropdown */
+    &__mobile-menu {
+      display: flex;
+      flex-direction: column;
+
+      max-height: 0;
+      overflow: hidden;
+
+      padding: 0 1rem;
+
+      background: var(--color-surface);
+
+      border-bottom: 0 solid $border;
+
+      opacity: 0;
+
+      transition:
+        max-height 0.3s ease,
+        opacity 0.2s ease,
+        padding 0.3s ease,
+        border 0.3s ease;
+
+      &--open {
+        max-height: 500px;
+
+        padding-top: 0.75rem;
+        padding-bottom: 1rem;
+
+        border-bottom: 1px solid $border;
+
+        opacity: 1;
+      }
+    }
+
+    &__mobile-link {
+      padding: 0.8rem 0.5rem;
+
+      color: $text-secondary;
+
+      font-size: 0.95rem;
+      font-weight: 500;
+
+      border-radius: $radius-md;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+      &:hover {
+        background: var(--color-background);
+        color: $primary;
+      }
+    }
+
+    &__mobile-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 0.5rem;
+
+      padding: 0.75rem 1rem;
+
+      border-radius: $radius-md;
+
+      background: $primary;
+      color: var(--color-on-primary);
+
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+  }
+
+  /* ================================
+     SMALL MOBILE
+     ================================ */
+
+  @media (max-width: 380px) {
+    &__logo {
+      font-size: 1rem;
+    }
+
+    &__container {
+      min-height: 60px;
+    }
+  }
+}

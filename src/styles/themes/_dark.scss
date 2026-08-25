@@ -1,9 +1,24 @@
-.dark-theme {
+@use "../abstracts/colors" as *;
 
-  --background: #0f172a;
-  --surface: #1e293b;
+[data-theme='dark'] {
+  --color-primary: #60a5fa;
+  --color-primary-dark: #3b82f6;
+  --color-primary-light: #93c5fd;
 
-  --text-primary: #ffffff;
-  --text-secondary: #cbd5e1;
+  --color-secondary: #e2e8f0;
+  --color-accent: #22d3ee;
 
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+
+  --color-border: #334155;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+
+  --color-on-primary: #ffffff;
 }

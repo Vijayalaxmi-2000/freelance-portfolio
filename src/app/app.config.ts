@@ -1,11 +1,18 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
+import { ApplicationConfig, inject } from '@angular/core';
+import { ThemeService } from './core/services/theme.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
-  ]
+    {
+      provide: 'APP_INITIALIZER',
+      useFactory: () => {
+        const themeService = inject(ThemeService);
+
+        return () => {
+          themeService.initializeTheme();
+        };
+      },
+      multi: true,
+    },
+  ],
 };
