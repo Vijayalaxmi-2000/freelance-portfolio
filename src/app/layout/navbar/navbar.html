@@ -2,35 +2,77 @@
   <div class="container navbar__container">
 
     <!-- Logo -->
-    <a class="navbar__logo" href="#home" (click)="closeMenu()">
-      <span class="navbar__logo-name">Vijayalaxmi Bewoor</span>
+    <a
+      class="navbar__logo"
+      href="#home"
+      aria-label="Vijayalaxmi Bewoor - Home"
+      (click)="closeMenu()"
+    >
+      <img
+        src="assets/images/vijuLogo.jpg"
+        alt="Vijayalaxmi Bewoor" 
+        class="navbar__logo-image"
+      />
     </a>
 
-    <!-- Desktop / Tablet Navigation -->
+
+    <!-- Desktop Navigation -->
     <div class="navbar__links">
-      <a href="#home" class="navbar__link">Home</a>
-      <a href="#about" class="navbar__link">About</a>
-      <a href="#services" class="navbar__link">Services</a>
-      <a href="#projects" class="navbar__link">Projects</a>
-      <a href="#contact" class="navbar__link">Contact</a>
+
+      <a
+        href="#home"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Home
+      </a>
+
+      <a
+        href="#about"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        About
+      </a>
+
+      <a
+        href="#services"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Services
+      </a>
+
+      <a
+        href="#projects"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Projects
+      </a>
+
+      <a
+        href="#contact"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Contact
+      </a>
+
     </div>
 
-    <!-- CTA -->
-    <a href="#contact" class="navbar__cta">
-      Let's Talk
-    </a>
 
-    <!-- Theme Toggle -->
-    <button
-      class="navbar__theme-toggle"
-      type="button"
-      aria-label="Toggle theme"
-      (click)="toggleTheme()"
-      [attr.aria-pressed]="theme === 'dark'"
-    >
-      {{ theme === 'dark' ? '🌙' : '☀️' }}
-    </button>
-    <!-- Mobile Menu Button -->
+    <!-- CTA -->
+   <a
+  href="#contact"
+  class="btn btn-primary navbar__cta"
+  (click)="closeMenu()"
+>
+  Let's Talk
+</a>
+
+
+    <!-- Mobile Menu -->
     <button
       class="navbar__menu-button"
       type="button"
@@ -38,38 +80,68 @@
       [attr.aria-expanded]="menuOpen"
       (click)="toggleMenu()"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="material-icons">
+        {{ menuOpen ? 'close' : 'menu' }}
+      </span>
     </button>
 
   </div>
 
-  <!-- Mobile Navigation -->
-  <div class="navbar__mobile-menu" [class.navbar__mobile-menu--open]="menuOpen">
 
-    <a href="#home" class="navbar__mobile-link" (click)="closeMenu()">
+  <!-- Mobile Navigation -->
+  <div
+    class="navbar__mobile-menu"
+    [class.navbar__mobile-menu--open]="menuOpen"
+  >
+
+    <a
+      href="#home"
+      class="navbar__mobile-link"
+      (click)="closeMenu()"
+    >
       Home
     </a>
 
-    <a href="#about" class="navbar__mobile-link" (click)="closeMenu()">
+    <a
+      href="#about"
+      class="navbar__mobile-link"
+      (click)="closeMenu()"
+    >
       About
     </a>
 
-    <a href="#services" class="navbar__mobile-link" (click)="closeMenu()">
+    <a
+      href="#services"
+      class="navbar__mobile-link"
+      (click)="closeMenu()"
+    >
       Services
     </a>
 
-    <a href="#projects" class="navbar__mobile-link" (click)="closeMenu()">
+    <a
+      href="#projects"
+      class="navbar__mobile-link"
+      (click)="closeMenu()"
+    >
       Projects
     </a>
 
-    <a href="#contact" class="navbar__mobile-link" (click)="closeMenu()">
+    <a
+      href="#contact"
+      class="navbar__mobile-link"
+      (click)="closeMenu()"
+    >
       Contact
     </a>
 
-    <a href="#contact" class="navbar__mobile-cta" (click)="closeMenu()">
+    <a
+      href="#contact"
+      class="btn btn-primary navbar__mobile-cta"
+      (click)="closeMenu()"
+    >
       Let's Talk
     </a>
+
   </div>
+
 </nav>

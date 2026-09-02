@@ -1,43 +1,713 @@
 @use "@angular/material" as mat;
 
-/* ================================
-   Angular Material Theme
-================================ */
-/* ================================
-   Design Tokens
-================================ */
+/* =========================================================
+   GLOBAL DESIGN SYSTEM
+   Freelance / Professional B2B Style
+   ========================================================= */
 
-@use "./styles/abstracts/colors";
-@use "./styles/abstracts/spacing";
-@use "./styles/abstracts/typography";
-@use "./styles/abstracts/breakpoints";
-@use "./styles/abstracts/variables";
-@use "./styles/abstracts/mixins";
+:root {
 
-/* ================================
-   Base
-================================ */
+  /* =====================================================
+     BRAND
+     ===================================================== */
 
-@use "./styles/base/reset";
-@use "./styles/base/global";
-@use "./styles/base/animations";
+--color-primary: #242424;
+--color-primary-hover: #000000;
+--color-primary-light: #E5F2ED;
 
-/* ================================
-   Themes
-================================ */
+--color-brand-soft: #B5C6BD;
+--color-accent-soft: #E8F5EF;
 
-@use "./styles/themes/light";
-@use "./styles/themes/dark";
+
+  /* =====================================================
+     ACCENT
+     ===================================================== */
+
+  --color-accent: #00A99D;
+
+
+  /* =====================================================
+     BACKGROUNDS
+     ===================================================== */
+
+  --color-background: #FFFFFF;
+
+  /* Soft green used for large sections/cards */
+  --color-surface: #F1F7F4;
+
+  --color-surface-hover: #E8F2EE;
+
+  --color-white: #FFFFFF;
+
+
+  /* =====================================================
+     TEXT
+     ===================================================== */
+
+  --color-text: #242424;
+
+  --color-text-secondary: #4A4A4A;
+
+  --color-text-muted: #6B6B6B;
+
+  --color-text-light: #8A8A8A;
+
+  --color-text-inverse: #FFFFFF;
+
+
+  /* =====================================================
+     BORDERS
+     ===================================================== */
+
+  --color-border: #D9E2DE;
+
+  --color-border-dark: #242424;
+
+
+  /* =====================================================
+     STATUS
+     ===================================================== */
+
+  --color-success: #16803C;
+
+  --color-warning: #B45309;
+
+  --color-error: #C62828;
+
+
+  /* =====================================================
+     SHADOWS
+     ===================================================== */
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.10);
+
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+
+  --font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+
+  /* =====================================================
+     LAYOUT
+     ===================================================== */
+
+  --container-width: 1240px;
+
+  --navbar-height: 72px;
+
+
+  /* =====================================================
+     RADIUS
+     ===================================================== */
+
+  --radius-xs: 4px;
+
+  --radius-sm: 6px;
+
+  --radius-md: 8px;
+
+  --radius-lg: 12px;
+
+  --radius-xl: 16px;
+
+  --radius-pill: 999px;
+
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+
+  --transition-fast: 0.15s ease;
+
+  --transition: 0.2s ease;
+
+  --transition-slow: 0.3s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+}
 
 html,
 body {
   margin: 0;
+  padding: 0;
   min-height: 100%;
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  font-family: var(--font-family-base);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+
+  background: var(--color-background);
+  color: var(--color-text);
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   GLOBAL CONTAINER
+   ========================================================= */
+
+.container {
+  width: min(
+    var(--container-width),
+    calc(100% - 48px)
+  );
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   GLOBAL SECTION
+   ========================================================= */
+
+.section {
+  padding: 96px 0;
+}
+
+.section--gray {
+  background: var(--color-surface);
+}
+
+.section__header {
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.section__eyebrow {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: var(--color-primary);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section__title {
+  margin: 0 0 16px;
+
+  color: var(--color-text);
+
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.section__description {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   GLOBAL BUTTON SYSTEM
+   ========================================================= */
+
+/*
+  Use:
+
+  <a class="btn btn-primary">Let's Talk</a>
+  <button class="btn btn-secondary">View Projects</button>
+  <button class="btn btn-outline">Contact Me</button>
+*/
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 48px;
+
+  padding: 0 24px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1;
+
+  white-space: nowrap;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(0, 102, 255, 0.2);
+  outline-offset: 2px;
+}
+
+
+/* Primary */
+
+.btn-primary {
+  background: #242424;
+  color: #ffffff;
+
+  border-color: #242424;
+}
+
+.btn-primary:hover {
+  background: #000000;
+  color: #ffffff;
+
+  border-color: #000000;
+
+  transform: translateY(-1px);
+}
+
+
+
+/* Secondary */
+
+.btn-secondary {
+  background: #ffffff;
+  color: #242424;
+
+  border-color: #242424;
+}
+
+.btn-secondary:hover {
+  background: #242424;
+  color: #ffffff;
+
+  border-color: #242424;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   OUTLINE
+   ========================================================= */
+
+.btn-outline {
+  background: transparent;
+  color: #242424;
+
+  border-color: #242424;
+}
+
+.btn-outline:hover {
+  background: #242424;
+  color: #ffffff;
+
+  border-color: #242424;
+
+  transform: translateY(-1px);
+}
+
+
+/* Large */
+
+.btn-lg {
+  min-height: 52px;
+
+  padding: 0 28px;
+
+  font-size: 0.95rem;
+}
+
+
+/* Small */
+
+.btn-sm {
+  min-height: 40px;
+
+  padding: 0 18px;
+
+  font-size: 0.84rem;
+}
+
+/* =========================================================
+   BUTTON WITH ICON
+   ========================================================= */
+
+.btn-icon {
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.btn:focus-visible {
+  outline: 2px solid #242424;
+  outline-offset: 3px;
+}
+/* =========================================================
+   GLOBAL CARD
+   ========================================================= */
+
+.card {
+  background: var(--color-white);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-xs);
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.card:hover {
+  border-color: #d4dce7;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+
+/* Card without hover */
+
+.card-static {
+  background: var(--color-white);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-xs);
+}
+
+
+/* =========================================================
+   GLOBAL BADGE
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  min-height: 30px;
+
+  padding: 0 11px;
+
+  border-radius: var(--radius-pill);
+
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   GLOBAL TAG
+   ========================================================= */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 10px;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   GLOBAL LINK
+   ========================================================= */
+
+.link {
+  color: var(--color-primary);
+  font-weight: 600;
+
+  transition: color var(--transition);
+}
+
+.link:hover {
+  color: var(--color-primary-hover);
+}
+
+
+/* =========================================================
+   GLOBAL FORM ELEMENTS
+   ========================================================= */
+
+.form-control {
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 0 14px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+
+  color: var(--color-text);
+
+  outline: none;
+
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.form-control::placeholder {
+  color: var(--color-text-light);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+
+/* =========================================================
+   GLOBAL GRID
+   ========================================================= */
+
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+
+/* =========================================================
+   GLOBAL FLEX
+   ========================================================= */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+
+/* =========================================================
+   GLOBAL SPACING
+   ========================================================= */
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+
+
+/* =========================================================
+   GLOBAL TEXT
+   ========================================================= */
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .container {
+    width: min(
+      var(--container-width),
+      calc(100% - 40px)
+    );
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section__header {
+    margin-bottom: 36px;
+  }
+}
+
+
+@media (max-width: 576px) {
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .section {
+    padding: 52px 0;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  .btn-lg {
+    width: 100%;
+  }
+}

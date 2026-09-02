@@ -6,17 +6,17 @@ export type Theme = 'light' | 'dark';
   providedIn: 'root',
 })
 export class ThemeService {
-  private readonly themeKey = 'theme';
+  private readonly themeKey = 'theme'; // Key for storing theme in localStorage
 
   setTheme(theme: Theme): void {
-    document.body.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);//
     localStorage.setItem(this.themeKey, theme);
   }
 
   getTheme(): Theme {
     return (
       (localStorage.getItem(this.themeKey) as Theme) || 'light'
-    );
+    ); // Default to 'light' if no theme is set
   }
 
   toggleTheme(): void {
@@ -27,8 +27,8 @@ export class ThemeService {
 
     this.setTheme(newTheme);
   }
-
+  
   initializeTheme(): void {
     this.setTheme(this.getTheme());
-  }
+  } 
 }
