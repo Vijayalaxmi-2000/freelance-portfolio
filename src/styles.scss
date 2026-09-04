@@ -218,7 +218,7 @@ a {
    ========================================================= */
 
 .section {
-  padding: 96px 0;
+  padding: 40px 0;
 }
 
 .section--gray {
@@ -248,9 +248,9 @@ a {
 
   color: var(--color-text);
 
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2rem);
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
 }
 

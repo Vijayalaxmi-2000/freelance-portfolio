@@ -1,0 +1,61 @@
+/* Bootstrap provides layout, spacing, sizing, and responsive utilities.
+   Global styles provide sections, cards, buttons, labels, and tags. */
+
+.about { background: var(--color-background); }
+
+.about__intro { padding: 30px 0; }
+.about__accent { color: var(--color-accent); }
+.about__text { max-width: 720px; color: var(--color-text-secondary); font-size: .98rem; line-height: 1.7; }
+
+.about__journey {
+  background:
+    url('/assets/images/careerimage.png') center / cover no-repeat;
+}
+
+.about__experience-highlight { min-height: 210px; background: var(--color-brand-soft); }
+.about__experience-highlight .material-icons { color: var(--color-accent); font-size: 24px; }
+.about__experience-highlight strong { color: var(--color-text); font-size: 3rem; line-height: 1; font-weight: 400; }
+.about__experience-highlight > span:last-child { max-width: 190px; margin-top: 8px; color: var(--color-text-secondary); font-size: .8rem; line-height: 1.5; }
+
+.about__career-icon,
+.about__education-icon { width: 48px; height: 48px; background: var(--color-primary-light); color: var(--color-accent); }
+
+.about__career-icon .material-icons,
+.about__education-icon .material-icons { font-size: 22px; }
+
+.about__period,
+.about__project-period { color: var(--color-accent); font-size: .75rem; letter-spacing: .05em; }
+
+.about__career h3 { color: var(--color-text); font-size: 1.25rem; }
+.about__career-point { background: var(--color-surface); }
+.about__career-point > .material-icons { flex-shrink: 0; color: var(--color-accent); font-size: 20px; }
+.about__career-point h4 { color: var(--color-text); font-size: .88rem; }
+.about__career-point p { color: var(--color-text-muted); font-size: .78rem; line-height: 1.55; }
+
+.about__achievement-icon,
+.about__project-icon { width: 52px; height: 52px; background: var(--color-primary-light); color: var(--color-accent); }
+
+.about__achievement h3 { color: var(--color-text); font-size: 1.1rem; }
+.about__achievement > p,
+.about__project > p:not(.about__project-period) { color: var(--color-text-muted); font-size: .82rem; line-height: 1.6; }
+.about__achievement .material-icons { color: var(--color-accent); font-size: 20px; }
+.about__achievement strong { color: var(--color-text); font-size: .82rem; }
+
+.about__project { transition: transform var(--transition), box-shadow var(--transition); }
+.about__project:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.about__project--highlight { background: var(--color-primary-light); }
+.about__project-icon { width: 48px; height: 48px; background: var(--color-accent-soft); }
+.about__project-icon .material-icons { font-size: 21px; }
+.about__project-period { font-size: .7rem; }
+.about__project h3 { color: var(--color-text); font-size: 1rem; }
+.about__project > p:not(.about__project-period) { font-size: .8rem; }
+
+.about__cta { padding: 30px 0 30px; }
+.about__cta-wrapper { background: var(--color-brand-soft); border-radius: var(--radius-xl); }
+.about__cta p:not(.section__eyebrow) { max-width: 580px; margin: 0; color: var(--color-text-secondary); font-size: .92rem; }
+
+@media (max-width: 767.98px) {
+  .about__intro { padding: 30px 0; }
+  .about__experience-highlight { min-height: 180px; }
+  .about__cta { padding-bottom: 48px; }
+}

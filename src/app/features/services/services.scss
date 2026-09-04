@@ -1,0 +1,47 @@
+/* Bootstrap provides layout, spacing, sizing, and responsive utilities.
+   Global styles provide sections, cards, buttons, labels, badges, and tags. */
+
+.services { background: var(--color-background); }
+
+.services__hero {
+ padding: 55px 0;
+
+  background-color: var(--color-surface);
+  background-image: url('/assets/images/services.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.services__accent { color: var(--color-accent); }
+.services__hero-card { min-height: 220px; background: var(--color-brand-soft); }
+.services__hero-icon { width: 50px; height: 50px; background: var(--color-accent-soft); color: var(--color-accent); }
+.services__hero-icon .material-icons { font-size: 23px; }
+.services__hero-card strong { color: var(--color-text); font-size: 1rem; }
+.services__hero-card strong span { margin: 0 4px; color: var(--color-accent); }
+.services__hero-card p { max-width: 280px; margin: 10px 0 0; color: var(--color-text-secondary); font-size: .82rem; line-height: 1.6; }
+
+.services__card { transition: transform var(--transition), box-shadow var(--transition); }
+.services__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.services__card--highlight { background: var(--color-primary-light); }
+.services__icon { width: 50px; height: 50px; background: var(--color-accent-soft); color: var(--color-accent); }
+.services__icon .material-icons { font-size: 22px; }
+.services__number { color: var(--color-border); font-size: 1.8rem; font-weight: 800; }
+.services__card h3 { color: var(--color-text); font-size: 1.15rem; }
+.services__card > p { max-width: 600px; color: var(--color-text-muted); font-size: .84rem; line-height: 1.65; }
+
+.services__step-number { top: 20px; right: 22px; color: var(--color-border); font-size: 1.4rem; font-weight: 800; }
+.services__step-icon { width: 48px; height: 48px; background: var(--color-primary-light); color: var(--color-accent); }
+.services__step-icon .material-icons { font-size: 21px; }
+.services__step h3 { color: var(--color-text); font-size: 1rem; }
+.services__step p { color: var(--color-text-muted); font-size: .8rem; line-height: 1.6; }
+
+.services__technology-card { background: var(--color-surface); }
+
+.services__cta { padding: 0 0 40px; }
+.services__cta-wrapper { background: var(--color-brand-soft); border-radius: var(--radius-xl); }
+.services__cta p:not(.section__eyebrow) { max-width: 580px; margin: 0; color: var(--color-text-secondary); font-size: .92rem; }
+
+@media (max-width: 767.98px) {
+  .services__hero { padding: 52px 0; }
+  .services__cta { padding-bottom: 48px; }
+}
