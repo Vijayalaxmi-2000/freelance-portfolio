@@ -1,0 +1,86 @@
+/* =========================================================
+   CONTACT PAGE
+
+   Bootstrap → layout / spacing / responsive
+   Global CSS → cards / buttons / typography / colors
+   This file → only Contact-specific styling
+   ========================================================= */
+
+.contact {
+  background: var(--color-background);
+}
+
+.contact__accent {
+  color: var(--color-accent);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.contact__hero {
+  padding: 28px 0;
+}
+
+.contact__hero-card {
+  min-height: 150px;
+  padding: 20px;
+  background: var(--color-brand-soft);
+}
+
+.contact__hero-card h2 {
+  margin: 12px 0 6px;
+  font-size: 1.15rem;
+}
+
+.contact__hero-card p {
+  max-width: 300px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: .8rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact__main {
+  padding: 40px 0;
+}
+
+.contact__info {
+  color: var(--color-text);
+}
+
+.contact__info p {
+  margin-top: 3px;
+  font-size: .82rem;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   AVAILABILITY
+   ========================================================= */
+
+.contact__availability {
+  padding: 40px 0;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .contact__hero,
+  .contact__main,
+  .contact__availability {
+    padding: 40px 0;
+  }
+
+}

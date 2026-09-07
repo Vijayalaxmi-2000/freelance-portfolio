@@ -1,1 +1,609 @@
-<p>projects works!</p>
+<section class="projects">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <section class="projects__hero section--gray">
+
+    <div class="container">
+
+      <div class="row align-items-center g-4">
+
+        <div class="col-12 col-lg-8">
+
+          <p class="section__eyebrow">
+            MY WORK
+          </p>
+
+          <h1 class="section__title">
+            Projects that turn
+            <span class="projects__accent">
+              ideas into solutions.
+            </span>
+          </h1>
+
+          <p class="section__description">
+            A selection of professional projects I have worked on
+            across healthcare, enterprise systems, membership
+            platforms and business applications.
+          </p>
+
+        </div>
+
+
+        <div class="col-12 col-lg-4">
+
+          <div class="projects__hero-card card-static">
+
+            <div class="icon-circle--accent">
+
+              <span class="material-icons">
+                work_outline
+              </span>
+
+            </div>
+
+            <strong>
+              {{ projects.length }} Professional Projects
+            </strong>
+
+            <p>
+              From frontend interfaces to scalable backend
+              systems and enterprise applications.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PROJECTS
+       ===================================================== -->
+
+  <section class="projects__list section">
+
+    <div class="container">
+
+      <div class="section__header">
+
+        <p class="section__eyebrow">
+          PROJECT PORTFOLIO
+        </p>
+
+        <h2 class="section__title">
+          Selected projects
+        </h2>
+
+        <p class="section__description">
+          Click on a project to explore my role, responsibilities,
+          technologies and the problems I worked on.
+        </p>
+
+      </div>
+
+
+      <!-- Bootstrap grid -->
+
+      <div class="row g-3 g-lg-4">
+
+        <div
+          class="col-12 col-md-6 col-lg-4"
+          *ngFor="let project of projects"
+        >
+
+          <article
+            class="projects__card card h-100"
+            tabindex="0"
+            role="button"
+            (click)="openProject(project)"
+            (keydown.enter)="openProject(project)"
+          >
+
+            <!-- Project visual -->
+
+            <div
+              class="projects__card-visual"
+              [ngClass]="'projects__card-visual--' + project.type"
+            >
+
+              <span class="material-icons">
+                {{ project.icon }}
+              </span>
+
+              <span class="projects__card-category">
+                {{ project.category }}
+              </span>
+
+            </div>
+
+
+            <!-- Card content -->
+
+            <div class="projects__card-content">
+
+              <div class="d-flex justify-content-between align-items-start gap-3">
+
+                <div>
+
+                  <p class="meta-label mb-2">
+                    {{ project.period }}
+                  </p>
+
+                  <h3>
+                    {{ project.title }}
+                  </h3>
+
+                </div>
+
+                <span class="projects__card-arrow">
+
+                  <span class="material-icons">
+                    arrow_forward
+                  </span>
+
+                </span>
+
+              </div>
+
+
+              <p class="projects__card-summary">
+                {{ project.summary }}
+              </p>
+
+
+              <div class="d-flex flex-wrap gap-2 mt-auto pt-3">
+
+                <span
+                  class="tag"
+                  *ngFor="let technology of project.technologies.slice(0, 4)"
+                >
+                  {{ technology }}
+                </span>
+
+                <span
+                  class="tag"
+                  *ngIf="project.technologies.length > 4"
+                >
+                  +{{ project.technologies.length - 4 }}
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       HOW I CONTRIBUTE
+       ===================================================== -->
+
+  <section class="projects__contribution section--gray">
+
+    <div class="container">
+
+      <div class="row align-items-center g-4 g-lg-5">
+
+        <div class="col-12 col-lg-5">
+
+          <p class="section__eyebrow">
+            MY APPROACH
+          </p>
+
+          <h2 class="section__title">
+            More than just writing code.
+          </h2>
+
+          <p class="section__description">
+            My professional experience covers development,
+            problem solving, quality, reusable components and
+            collaboration across different stages of delivery.
+          </p>
+
+        </div>
+
+
+        <div class="col-12 col-lg-7">
+
+          <div class="row g-3">
+
+            <div class="col-12 col-sm-6">
+
+              <div class="card-static p-4 h-100">
+
+                <div class="icon-circle--soft">
+
+                  <span class="material-icons">
+                    code
+                  </span>
+
+                </div>
+
+                <h3 class="mt-3 mb-2">
+                  Development
+                </h3>
+
+                <p class="text-muted mb-0">
+                  Frontend interfaces, backend APIs and
+                  full-stack application development.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6">
+
+              <div class="card-static p-4 h-100">
+
+                <div class="icon-circle--soft">
+
+                  <span class="material-icons">
+                    extension
+                  </span>
+
+                </div>
+
+                <h3 class="mt-3 mb-2">
+                  Reusability
+                </h3>
+
+                <p class="text-muted mb-0">
+                  Reusable modules and components that improve
+                  consistency and development efficiency.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6">
+
+              <div class="card-static p-4 h-100">
+
+                <div class="icon-circle--soft">
+
+                  <span class="material-icons">
+                    verified
+                  </span>
+
+                </div>
+
+                <h3 class="mt-3 mb-2">
+                  Quality
+                </h3>
+
+                <p class="text-muted mb-0">
+                  QA, UAT support, bug fixing and attention
+                  to reliable software delivery.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="col-12 col-sm-6">
+
+              <div class="card-static p-4 h-100">
+
+                <div class="icon-circle--soft">
+
+                  <span class="material-icons">
+                    groups
+                  </span>
+
+                </div>
+
+                <h3 class="mt-3 mb-2">
+                  Collaboration
+                </h3>
+
+                <p class="text-muted mb-0">
+                  Working with Agile teams and collaborating
+                  across technical and business requirements.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       TECHNOLOGIES
+       ===================================================== -->
+
+  <section class="projects__technology section">
+
+    <div class="container">
+
+      <div class="section__header">
+
+        <p class="section__eyebrow">
+          TECHNOLOGY
+        </p>
+
+        <h2 class="section__title">
+          Technologies I have worked with.
+        </h2>
+
+      </div>
+
+
+      <div class="projects__technology-card card-static">
+
+        <div class="d-flex flex-wrap gap-2">
+
+          <span class="tag">Angular</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Spring REST</span>
+          <span class="tag">Spring Data JPA</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Jasper Reports</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Git</span>
+          <span class="tag">Maven</span>
+          <span class="tag">Postman</span>
+          <span class="tag">Angular Material</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CTA
+       ===================================================== -->
+
+  <section class="projects__cta">
+
+    <div class="container">
+
+      <div class="projects__cta-wrapper">
+
+        <div class="row align-items-center g-4">
+
+          <div class="col-12 col-lg-8">
+
+            <p class="section__eyebrow mb-2">
+              HAVE A PROJECT IN MIND?
+            </p>
+
+            <h2 class="section__title">
+              Have a problem that needs
+              a software solution?
+            </h2>
+
+            <p>
+              Let's discuss what you're trying to build
+              and how I can help.
+            </p>
+
+          </div>
+
+
+          <div class="col-12 col-lg-4">
+
+            <div class="d-flex justify-content-lg-end">
+
+              <a
+                href="#contact"
+                class="btn btn-primary btn-lg"
+              >
+                Let's Talk
+
+                <span class="material-icons">
+                  arrow_forward
+                </span>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PROJECT DETAILS MODAL
+       ===================================================== -->
+
+  <div
+    class="projects__modal-backdrop"
+    *ngIf="selectedProject"
+    (click)="closeProject()"
+  >
+
+    <div
+      class="projects__modal"
+      role="dialog"
+      aria-modal="true"
+      (click)="$event.stopPropagation()"
+    >
+
+      <!-- Modal header -->
+
+      <div class="projects__modal-header">
+
+        <div>
+
+          <p class="meta-label mb-2">
+            {{ selectedProject?.period }}
+          </p>
+
+          <h2>
+            {{ selectedProject.title }}
+          </h2>
+
+          <p class="projects__modal-client">
+            Client: {{ selectedProject.client }}
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="projects__modal-close"
+          aria-label="Close project details"
+          (click)="closeProject()"
+        >
+
+          <span class="material-icons">
+            close
+          </span>
+
+        </button>
+
+      </div>
+
+
+      <!-- Modal body -->
+
+      <div class="projects__modal-body">
+
+        <div class="projects__modal-info">
+
+          <div>
+
+            <span class="meta-label">
+              ROLE
+            </span>
+
+            <p>
+              {{ selectedProject.role }}
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <span class="meta-label">
+              DOMAIN
+            </span>
+
+            <p>
+              {{ selectedProject.category }}
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="projects__modal-section">
+
+          <h3>
+            Overview
+          </h3>
+
+          <p>
+            {{ selectedProject.description }}
+          </p>
+
+        </div>
+
+
+        <div class="projects__modal-section">
+
+          <h3>
+            My contributions
+          </h3>
+
+          <ul>
+
+            <li *ngFor="let contribution of selectedProject.contributions">
+              {{ contribution }}
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="projects__modal-section">
+
+          <h3>
+            Technologies
+          </h3>
+
+          <div class="d-flex flex-wrap gap-2">
+
+            <span
+              class="tag"
+              *ngFor="let technology of selectedProject.technologies"
+            >
+              {{ technology }}
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Modal footer -->
+
+      <div class="projects__modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeProject()"
+        >
+          Close
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

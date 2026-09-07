@@ -1,0 +1,451 @@
+/* =========================================================
+   PROJECTS PAGE
+
+   Bootstrap → layout / grid / spacing
+   Global CSS → cards / buttons / typography / colors
+   This file → project-specific visuals + modal
+   ========================================================= */
+
+.projects {
+  background: var(--color-background);
+}
+
+.projects__accent {
+  color: var(--color-accent);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.projects__hero {
+  padding: 40px 0;
+}
+
+.projects__hero-card {
+  min-height: 190px;
+  padding: 28px;
+
+  background: var(--color-brand-soft);
+}
+
+.projects__hero-card strong {
+  display: block;
+  margin-top: 16px;
+
+  color: var(--color-text);
+  font-size: 1.25rem;
+}
+
+.projects__hero-card p {
+  max-width: 280px;
+  margin: 8px 0 0;
+
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
+.projects__list {
+  padding: 60px 0;
+
+  background-color: var(--color-background);
+  background-image: url('/assets/images/projectsimage.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.projects__card {
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.projects__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.projects__card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.projects__card-visual {
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  padding: 24px;
+
+  color: var(--color-accent);
+  background: var(--color-primary-light);
+}
+
+.projects__card-visual .material-icons {
+  font-size: 42px;
+}
+
+.projects__card-visual--audit {
+  background: var(--color-surface);
+}
+
+.projects__card-visual--website {
+  background: var(--color-accent-soft);
+}
+
+.projects__card-visual--alumni {
+  background: var(--color-primary-light);
+}
+
+.projects__card-visual--alambana {
+  background: var(--color-surface);
+}
+
+.projects__card-category {
+  margin-top: 14px;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.projects__card-content {
+  min-height: 230px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+}
+
+.projects__card-content h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.projects__card-summary {
+  margin: 16px 0 0;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.projects__card-arrow {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+
+  color: var(--color-text);
+}
+
+.projects__card-arrow .material-icons {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   CONTRIBUTION
+   ========================================================= */
+
+.projects__contribution {
+  padding: 60px 0;
+}
+
+.projects__technology {
+  padding: 60px 0;
+}
+
+.projects__technology-card {
+  padding: 28px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.projects__cta {
+  padding: 0 0 50px;
+}
+
+.projects__cta-wrapper {
+  padding: 42px;
+
+  background: var(--color-brand-soft);
+  border-radius: var(--radius-xl);
+}
+
+
+.projects__cta p:not(.section__eyebrow) {
+  max-width: 580px;
+  margin: 0;
+
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+}
+
+
+/* =========================================================
+   PROJECT MODAL
+   ========================================================= */
+
+.projects__modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  overflow-y: auto;
+}
+
+.projects__modal {
+  width: min(760px, 100%);
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--color-background);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-lg);
+
+  overflow: hidden;
+}
+
+
+/* Modal header */
+
+.projects__modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 28px 30px;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.projects__modal-header h2 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 1.6rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.projects__modal-client {
+  margin: 8px 0 0;
+
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+
+/* Close */
+
+.projects__modal-close {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+
+  background: var(--color-background);
+  color: var(--color-text);
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
+}
+
+.projects__modal-close:hover {
+  background: var(--color-surface);
+  transform: rotate(90deg);
+}
+
+.projects__modal-close .material-icons {
+  font-size: 20px;
+}
+
+
+/* Modal body */
+
+.projects__modal-body {
+  padding: 30px;
+
+  overflow-y: auto;
+}
+
+.projects__modal-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.projects__modal-info p {
+  margin: 5px 0 0;
+
+  color: var(--color-text);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.projects__modal-section {
+  margin-top: 28px;
+}
+
+.projects__modal-section h3 {
+  margin: 0 0 10px;
+
+  color: var(--color-text);
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.projects__modal-section p,
+.projects__modal-section li {
+  color: var(--color-text-secondary);
+
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.projects__modal-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.projects__modal-section li + li {
+  margin-top: 7px;
+}
+
+
+/* Modal footer */
+
+.projects__modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 20px 30px;
+
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .projects__hero {
+    padding: 48px 0;
+  }
+
+  .projects__list,
+  .projects__contribution,
+  .projects__technology {
+    padding: 50px 0;
+  }
+
+  .projects__card-content {
+    min-height: 210px;
+  }
+
+  .projects__modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .projects__modal {
+    max-height: 94vh;
+
+    border-radius:
+      var(--radius-xl)
+      var(--radius-xl)
+      0
+      0;
+  }
+
+  .projects__modal-header {
+    padding: 22px;
+  }
+
+  .projects__modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .projects__modal-body {
+    padding: 22px;
+  }
+
+  .projects__modal-footer {
+    padding: 16px 22px;
+  }
+
+  .projects__modal-footer .btn {
+    width: 100%;
+  }
+
+  .projects__cta-wrapper {
+    padding: 30px 24px;
+  }
+
+}

@@ -1,5 +1,3 @@
-.home { width: 100%; background: var(--color-background); }
-
 .home__hero,
 .home__hero-row { min-height: 430px; }
 .home__hero { overflow: hidden; background: var(--color-brand-soft); }
@@ -39,7 +37,6 @@
 
 .home__benefit { border-right: 1px solid var(--color-border); }
 .home__benefit--last { border-right: 0; }
-.home__benefit-icon { width: 48px; height: 48px; background: var(--color-primary-light); color: var(--color-accent); }
 .home__benefit-icon .material-icons { font-size: 21px; }
 .home__benefit h3 { color: var(--color-text); font-size: .95rem; }
 .home__benefit p { color: var(--color-text-muted); font-size: .8rem; line-height: 1.5; }
