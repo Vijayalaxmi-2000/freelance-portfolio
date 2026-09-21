@@ -1,0 +1,150 @@
+<nav class="navbar sticky-top w-100 bg-white border-bottom">
+  <div class="container navbar__container d-flex align-items-center gap-4">
+
+    <!-- Logo -->
+    <a
+      class="navbar__logo d-inline-flex align-items-center flex-shrink-0"
+      href="#home"
+      aria-label="Vijayalaxmi Bewoor - Home"
+      (click)="closeMenu()"
+    >
+      <img
+        src="assets/images/vijuLogo.jpg"
+        alt="Vijayalaxmi Bewoor" 
+        class="navbar__logo-image"
+      />
+    </a>
+
+
+    <!-- Desktop Navigation -->
+    <div class="navbar__links d-none d-md-flex align-items-center gap-4 ms-auto">
+
+      <a
+        routerLink="/home"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Home
+      </a>
+
+      <a
+        routerLink="/about"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        About
+      </a>
+
+      <a
+      routerLink="/services"
+        href="#services"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Services
+      </a>
+
+      <a
+      routerLink="/projects"
+        href="#projects"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Projects
+      </a>
+
+      <a
+      routerLink="/contact"
+        href="#contact"
+        class="navbar__link"
+        (click)="closeMenu()"
+      >
+        Contact
+      </a>
+
+    </div>
+
+
+    <!-- CTA -->
+   <a
+  href="#contact"
+  class="btn btn-primary navbar__cta d-none d-md-inline-flex flex-shrink-0 px-3"
+  (click)="closeMenu()"
+>
+  Let's Talk
+</a>
+
+
+    <!-- Mobile Menu -->
+    <button
+      class="navbar__menu-button d-inline-flex d-md-none align-items-center justify-content-center ms-auto p-0 bg-white border rounded-2"
+      type="button"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="menuOpen"
+      (click)="toggleMenu()"
+    >
+      <span class="material-icons">
+        {{ menuOpen ? 'close' : 'menu' }}
+      </span>
+    </button>
+
+  </div>
+
+
+  <!-- Mobile Navigation -->
+  <div
+    class="navbar__mobile-menu d-md-none flex-column"
+    [class.navbar__mobile-menu--open]="menuOpen"
+  >
+
+    <a
+      href="#home"
+      class="navbar__mobile-link d-flex align-items-center px-3 rounded-2"
+      (click)="closeMenu()"
+    >
+      Home
+    </a>
+
+    <a
+      routerLink="/about"
+      class="navbar__mobile-link d-flex align-items-center px-3 rounded-2"
+      (click)="closeMenu()"
+    >
+      About
+    </a>
+
+    <a
+      href="#services"
+      class="navbar__mobile-link d-flex align-items-center px-3 rounded-2"
+      (click)="closeMenu()"
+    >
+      Services
+    </a>
+
+    <a
+      href="#projects"
+      class="navbar__mobile-link d-flex align-items-center px-3 rounded-2"
+      (click)="closeMenu()"
+    >
+      Projects
+    </a>
+
+    <a
+      href="#contact"
+      class="navbar__mobile-link d-flex align-items-center px-3 rounded-2"
+      (click)="closeMenu()"
+    >
+      Contact
+    </a>
+
+    <a
+      href="#contact"
+      class="btn btn-primary navbar__mobile-cta w-100 mt-2"
+      (click)="closeMenu()"
+    >
+      Let's Talk
+    </a>
+
+  </div>
+
+</nav>

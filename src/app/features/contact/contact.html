@@ -1,0 +1,488 @@
+<section class="contact">
+
+  <!-- =====================================================
+       CONTACT HERO
+       ===================================================== -->
+
+  <section class="contact__hero section--gray">
+
+    <div class="container">
+
+      <div class="row align-items-center g-3 g-lg-5">
+
+        <div class="col-12 col-lg-7">
+
+          <p class="section__eyebrow">
+            GET IN TOUCH
+          </p>
+
+          <h1 class="section__title">
+            Let's talk about
+            <span class="contact__accent">
+              your project.
+            </span>
+          </h1>
+
+          <p class="section__description">
+            Have a project, an existing application that needs
+            improvement, or a development requirement?
+            I'd be happy to discuss it with you.
+          </p>
+
+        </div>
+
+
+        <div class="col-12 col-lg-5 p-2">
+
+          <div class="contact__hero-card card-static">
+
+            <div class="icon-circle--accent">
+
+              <span class="material-icons">
+                chat_bubble_outline
+              </span>
+
+            </div>
+
+            <h2>
+              Start a conversation
+            </h2>
+
+            <p>
+              Tell me what you're building, what you're trying
+              to improve, or what problem you need to solve.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CONTACT AREA
+       ===================================================== -->
+
+  <section class="contact__main section">
+
+    <div class="container">
+
+      <div class="row g-3 g-lg-5">
+
+
+        <!-- =================================================
+             CONTACT INFORMATION
+             ================================================= -->
+
+        <div class="col-12 col-lg-5">
+
+          <div class="section__header mb-4">
+
+            <p class="section__eyebrow">
+              CONTACT
+            </p>
+
+            <h2 class="section__title">
+              How you can reach me
+            </h2>
+
+            <p class="section__description">
+              Whether you have a specific project in mind or
+              simply want to discuss an idea, feel free to get
+              in touch.
+            </p>
+
+          </div>
+
+
+          <div class="d-grid gap-3">
+
+
+            <!-- Email -->
+
+            <a
+              href="mailto:bewoorvijayalaxmi@gmail.com"
+              class="contact__info card-static d-flex align-items-center gap-3 text-decoration-none p-2"
+            >
+
+              <div class="icon-circle--soft flex-shrink-0">
+
+                <span class="material-icons">
+                  email
+                </span>
+
+              </div>
+
+              <div>
+
+                <span class="meta-label">
+                  EMAIL
+                </span>
+
+                  <p class="mb-0">
+                    bewoorvijayalaxmi@gmail.com
+                  </p>
+
+              </div>
+
+            </a>
+
+
+            <!-- Location -->
+
+            <div class="contact__info card-static d-flex align-items-center gap-3 p-2">
+
+              <div class="icon-circle--soft flex-shrink-0">
+
+                <span class="material-icons">
+                  location_on
+                </span>
+
+              </div>
+
+              <div>
+
+                <span class="meta-label">
+                  LOCATION
+                </span>
+
+                <p class="mb-0">
+                  Germany
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- Availability -->
+
+            <div class="contact__info card-static d-flex align-items-center gap-3 p-2">
+
+              <div class="icon-circle--soft flex-shrink-0">
+
+                <span class="material-icons">
+                  schedule
+                </span>
+
+              </div>
+
+              <div>
+
+                <span class="meta-label">
+                  AVAILABILITY
+                </span>
+
+                <p class="mb-0">
+                  Available for freelance projects
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Services -->
+
+          <div class="mt-4">
+
+            <span class="meta-label">
+              INTERESTED IN
+            </span>
+
+            <div class="d-flex flex-wrap gap-2 mt-2">
+
+              <span class="tag">
+                Frontend Development
+              </span>
+
+              <span class="tag">
+                Backend Development
+              </span>
+
+              <span class="tag">
+                Full-stack Development
+              </span>
+
+              <span class="tag">
+                QA testing
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTACT FORM
+             ================================================= -->
+
+        <div class="col-12 col-lg-7">
+
+        <form
+        class="contact__form card-static p-4"
+        (submit)="submitForm($event)"
+      >
+        <!-- Success -->
+
+          <div
+            *ngIf="successMessage"
+            class="alert alert-success d-flex align-items-center gap-2 mb-3"
+            role="alert"
+          >
+            <span class="material-icons">
+              check_circle
+            </span>
+
+            <span>
+              {{ successMessage }}
+            </span>
+          </div>
+
+
+          <!-- Error -->
+
+          <div
+            *ngIf="errorMessage"
+            class="alert alert-danger d-flex align-items-center gap-2 mb-3"
+            role="alert"
+          >
+            <span class="material-icons">
+              error
+            </span>
+
+            <span>
+              {{ errorMessage }}
+            </span>
+          </div>
+
+          <div class="mb-3">
+
+            <p class="section__eyebrow mb-2">
+              SEND A MESSAGE
+            </p>
+
+            <h2 class="h3 fw-bold mb-0">
+              Tell me about your project
+            </h2>
+
+          </div>
+
+
+          <div class="row g-3">
+
+            <!-- Name -->
+
+            <div class="col-12 col-md-6">
+
+              <label for="name" class="form-label">
+                Name
+              </label>
+
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                [class.is-invalid]="submitted && !isNameValid()"
+                name="name"
+                [value]="contact.name"
+                (input)="contact.name = $any($event.target).value"
+                placeholder="Your name"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isNameValid()"
+              >
+                Please enter your name.
+              </div>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="col-12 col-md-6">
+
+              <label for="email" class="form-label">
+                Email
+              </label>
+
+              <input
+                id="email"
+                type="email"
+                class="form-control"
+                [class.is-invalid]="submitted && !isEmailValid()"
+                name="email"
+                [value]="contact.email"
+                (input)="contact.email = $any($event.target).value"
+                placeholder="you@example.com"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isEmailValid()"
+              >
+                Please enter a valid email address.
+              </div>
+
+            </div>
+
+
+            <!-- Subject -->
+
+            <div class="col-12">
+
+              <label for="subject" class="form-label">
+                Subject
+              </label>
+
+              <input
+                id="subject"
+                type="text"
+                class="form-control"
+                [class.is-invalid]="submitted && !isSubjectValid()"
+                name="subject"
+                [value]="contact.subject"
+                (input)="contact.subject = $any($event.target).value"
+                placeholder="What would you like to discuss?"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isSubjectValid()"
+              >
+                Subject must contain at least 3 characters.
+              </div>
+
+            </div>
+
+
+            <!-- Message -->
+
+            <div class="col-12">
+
+              <label for="message" class="form-label">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                class="form-control"
+                [class.is-invalid]="submitted && !isMessageValid()"
+                name="message"
+                [value]="contact.message"
+                (input)="contact.message = $any($event.target).value"
+                rows="6"
+                placeholder="Tell me a little about your project..."
+              ></textarea>
+
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isMessageValid()"
+              >
+                Please enter at least 10 characters.
+              </div>
+
+            </div>
+
+
+            <!-- Submit -->
+
+            <div class="col-12">
+
+              <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="isSubmitting"
+            >
+              <span>
+                {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+              </span>
+
+              <span class="material-icons">
+                {{ isSubmitting ? 'hourglass_empty' : 'arrow_forward' }}
+              </span>
+            </button>
+
+            </div>
+
+          </div>
+
+        </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       WORK TOGETHER
+       ===================================================== -->
+
+  <section class="contact__availability section--gray">
+
+    <div class="container">
+
+      <div class="row align-items-center g-4">
+
+        <div class="col-12 col-lg-8">
+
+          <p class="section__eyebrow">
+            LET'S WORK TOGETHER
+          </p>
+
+          <h2 class="section__title mb-2">
+            Looking for a developer who
+            understands the bigger picture?
+          </h2>
+
+          <p class="mb-0 text-muted">
+            I enjoy working on practical software solutions
+            where technical implementation and business
+            requirements need to work together.
+          </p>
+
+        </div>
+
+
+        <div class="col-12 col-lg-4">
+
+          <div class="d-flex justify-content-lg-end">
+
+            <a
+            href="mailto:vijayalaxmibewoor@gmail.com"
+            class="contact__info card-static d-flex align-items-center gap-3 text-decoration-none p-2"
+          >
+              Email Me
+
+              <span class="material-icons">
+                email
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
