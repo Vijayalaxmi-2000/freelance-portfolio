@@ -106,7 +106,7 @@
             <!-- Email -->
 
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:bewoorvijayalaxmi@gmail.com"
               class="contact__info card-static d-flex align-items-center gap-3 text-decoration-none p-2"
             >
 
@@ -124,9 +124,9 @@
                   EMAIL
                 </span>
 
-                <p class="mb-0">
-                  your.email@example.com
-                </p>
+                  <p class="mb-0">
+                    bewoorvijayalaxmi@gmail.com
+                  </p>
 
               </div>
 
@@ -212,7 +212,7 @@
               </span>
 
               <span class="tag">
-                Application Enhancement
+                QA testing
               </span>
 
             </div>
@@ -228,149 +228,197 @@
 
         <div class="col-12 col-lg-7">
 
-          <form
-  class="contact__form card-static p-3 "
-  (ngSubmit)="submitForm()"
->
-
-  <div class="mb-3">
-
-    <p class="section__eyebrow mb-2">
-      SEND A MESSAGE
-    </p>
-
-    <h2 class="h3 fw-bold mb-0">
-      Tell me about your project
-    </h2>
-
-  </div>
-
-
-  <div class="row g-3">
-
-    <!-- Name -->
-
-    <div class="col-12 col-md-6">
-
-      <label
-        for="name"
-        class="form-label"
+        <form
+        class="contact__form card-static p-4"
+        (submit)="submitForm($event)"
       >
-        Name
-      </label>
+        <!-- Success -->
 
-      <input
-        id="name"
-        type="text"
-        class="form-control"
-        name="name"
-        [value]="contact.name"
-        (input)="contact.name = $any($event.target).value"
-        placeholder="Your name"
-        required
-      />
+          <div
+            *ngIf="successMessage"
+            class="alert alert-success d-flex align-items-center gap-2 mb-3"
+            role="alert"
+          >
+            <span class="material-icons">
+              check_circle
+            </span>
 
-    </div>
-
-
-    <!-- Email -->
-
-    <div class="col-12 col-md-6">
-
-      <label
-        for="email"
-        class="form-label"
-      >
-        Email
-      </label>
-
-      <input
-        id="email"
-        type="email"
-        class="form-control"
-        name="email"
-        [value]="contact.email"
-        (input)="contact.email = $any($event.target).value"
-        placeholder="you@example.com"
-        required
-      />
-
-    </div>
+            <span>
+              {{ successMessage }}
+            </span>
+          </div>
 
 
-    <!-- Subject -->
+          <!-- Error -->
 
-    <div class="col-12">
+          <div
+            *ngIf="errorMessage"
+            class="alert alert-danger d-flex align-items-center gap-2 mb-3"
+            role="alert"
+          >
+            <span class="material-icons">
+              error
+            </span>
 
-      <label
-        for="subject"
-        class="form-label"
-      >
-        Subject
-      </label>
+            <span>
+              {{ errorMessage }}
+            </span>
+          </div>
 
-      <input
-        id="subject"
-        type="text"
-        class="form-control"
-        name="subject"
-        [value]="contact.subject"
-        (input)="contact.subject = $any($event.target).value"
-        placeholder="What would you like to discuss?"
-        required
-      />
+          <div class="mb-3">
 
-    </div>
+            <p class="section__eyebrow mb-2">
+              SEND A MESSAGE
+            </p>
 
+            <h2 class="h3 fw-bold mb-0">
+              Tell me about your project
+            </h2>
 
-    <!-- Message -->
-
-    <div class="col-12">
-
-      <label
-        for="message"
-        class="form-label"
-      >
-        Message
-      </label>
-
-      <textarea
-        id="message"
-        class="form-control"
-        name="message"
-        [value]="contact.message"
-        (input)="contact.message = $any($event.target).value"
-        rows="6"
-        placeholder="Tell me a little about your project..."
-        required
-      ></textarea>
-
-    </div>
+          </div>
 
 
-    <!-- Submit -->
+          <div class="row g-3">
 
-    <div class="col-12">
+            <!-- Name -->
 
-      <button
-        type="submit"
-        class="btn btn-primary btn-lg"
-        [disabled]="isSubmitting"
-      >
+            <div class="col-12 col-md-6">
 
-        {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+              <label for="name" class="form-label">
+                Name
+              </label>
 
-        <span class="material-icons">
-          arrow_forward
-        </span>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                [class.is-invalid]="submitted && !isNameValid()"
+                name="name"
+                [value]="contact.name"
+                (input)="contact.name = $any($event.target).value"
+                placeholder="Your name"
+              />
 
-      </button>
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isNameValid()"
+              >
+                Please enter your name.
+              </div>
 
-    </div>
+            </div>
 
-  </div>
 
-</form>
+            <!-- Email -->
+
+            <div class="col-12 col-md-6">
+
+              <label for="email" class="form-label">
+                Email
+              </label>
+
+              <input
+                id="email"
+                type="email"
+                class="form-control"
+                [class.is-invalid]="submitted && !isEmailValid()"
+                name="email"
+                [value]="contact.email"
+                (input)="contact.email = $any($event.target).value"
+                placeholder="you@example.com"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isEmailValid()"
+              >
+                Please enter a valid email address.
+              </div>
+
+            </div>
+
+
+            <!-- Subject -->
+
+            <div class="col-12">
+
+              <label for="subject" class="form-label">
+                Subject
+              </label>
+
+              <input
+                id="subject"
+                type="text"
+                class="form-control"
+                [class.is-invalid]="submitted && !isSubjectValid()"
+                name="subject"
+                [value]="contact.subject"
+                (input)="contact.subject = $any($event.target).value"
+                placeholder="What would you like to discuss?"
+              />
+
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isSubjectValid()"
+              >
+                Subject must contain at least 3 characters.
+              </div>
+
+            </div>
+
+
+            <!-- Message -->
+
+            <div class="col-12">
+
+              <label for="message" class="form-label">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                class="form-control"
+                [class.is-invalid]="submitted && !isMessageValid()"
+                name="message"
+                [value]="contact.message"
+                (input)="contact.message = $any($event.target).value"
+                rows="6"
+                placeholder="Tell me a little about your project..."
+              ></textarea>
+
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && !isMessageValid()"
+              >
+                Please enter at least 10 characters.
+              </div>
+
+            </div>
+
+
+            <!-- Submit -->
+
+            <div class="col-12">
+
+              <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              [disabled]="isSubmitting"
+            >
+              <span>
+                {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+              </span>
+
+              <span class="material-icons">
+                {{ isSubmitting ? 'hourglass_empty' : 'arrow_forward' }}
+              </span>
+            </button>
+
+            </div>
+
+          </div>
+
+        </form>
 
         </div>
 
@@ -416,9 +464,9 @@
           <div class="d-flex justify-content-lg-end">
 
             <a
-              href="mailto:your.email@example.com"
-              class="btn btn-primary btn-lg"
-            >
+            href="mailto:vijayalaxmibewoor@gmail.com"
+            class="contact__info card-static d-flex align-items-center gap-3 text-decoration-none p-2"
+          >
               Email Me
 
               <span class="material-icons">
