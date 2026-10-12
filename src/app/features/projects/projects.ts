@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 interface Project {
   title: string;
   period: string;
@@ -15,7 +16,7 @@ interface Project {
 }
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink ],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })

@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { ThemeService } from './core/services/theme.service';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './layout/footer/footer';
 import { Navbar } from "./layout/navbar/navbar";
@@ -12,7 +11,5 @@ import { Navbar } from "./layout/navbar/navbar";
 })
 export class App {
   protected readonly title = signal('freelance-portfolio');
-  constructor(private themeService: ThemeService) {
-    this.themeService.initializeTheme();
-  }
+  
 }

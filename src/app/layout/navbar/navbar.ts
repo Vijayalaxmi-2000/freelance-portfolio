@@ -1,19 +1,15 @@
 import { Component } from '@angular/core';
-import { ThemeService, Theme } from '../../core/services/theme.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
 export class Navbar {
   menuOpen = false;
-  theme: Theme = 'light';
 
-  constructor(private themeService: ThemeService) {
-    this.theme = this.themeService.getTheme();
-  }
+  
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
@@ -23,8 +19,5 @@ export class Navbar {
     this.menuOpen = false;
   }
 
-  toggleTheme(): void {
-    this.themeService.toggleTheme();
-    this.theme = this.themeService.getTheme();
-  }
+
 }
